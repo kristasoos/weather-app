@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Source+Serif+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <form class="form-search">
+            <input type="text" placeholder="Enter city name" id="search-city" />
+            <input id="search" type="submit" value="Search" />
+            <input id="button-current" type="button" value="📍"
+          </form>
+          <div class="row">
+            <div class="col-5">
+              <br />
+              <h1 class="city" id="current-city"></h1>
+              <h4 id="date-time">Thursday 11.00 
+              </h4>
+              <h4 class="weatherCondition">
+                <span id="weatherDescription"> </span>
+                </h4>
+            </div>
+            <div class="col-3">
+                <img src="media/weather.svg" alt="" width="200px">
+            </div>
+            <div class="col-4">
+              <br />
+              <h1>
+                <span class="temperature" id="temperature">
+                  
+                </span>
+                <span class="units"> 
+                  °C 
+                </span>
+              </h1>
+              <h4 class="humidity">Humidity <span id="humidity"> </span>%</h4>
+              <h4 class="wind">
+                Wind
+                <span id="windSpeed"> </span> km/h
+              </h4>
+            </div>
+            <div class="card-group">
+              <div class="card">
+                <img src="media/Snow.svg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Thursday</h5>
+                  <p class="card-text">
+                    <h6>
+                        Min: 0°
+                    </h6>
+                    <h6>
+                        Max: 3°
+                    </h6>
+                    <h6>
+                        Wind: 5km/h
+                    </h6>
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="media/Snow.svg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Friday</h5>
+                  <p class="card-text">
+                    <h6>
+                        Min: 0°
+                    </h6>
+                    <h6>
+                        Max: 3°
+                    </h6>
+                    <h6>
+                        Wind: 5km/h
+                    </h6>
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="media/Snow.svg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Saturday</h5>
+                  <p class="card-text">
+                    <h6>
+                        Min: 0°
+                    </h6>
+                    <h6>
+                        Max: 3°
+                    </h6>
+                    <h6>
+                        Wind: 5km/h
+                    </h6>
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="media/Snow.svg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Sunday</h5>
+                  <p class="card-text">
+                    <h6>
+                        Min: 0°
+                    </h6>
+                    <h6>
+                        Max: 3°
+                    </h6>
+                    <h6>
+                        Wind: 5km/h
+                    </h6>
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="media/Snow.svg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Monday</h5>
+                  <p class="card-text">
+                    <h6>
+                        Min: 0°
+                    </h6>
+                    <h6>
+                        Max: 3°
+                    </h6>
+                    <h6>
+                        Wind: 5km/h
+                    </h6>
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+               <div class="card">
+                <img src="media/Snow.svg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Tuesday</h5>
+                  <p class="card-text">
+                    <h6>
+                        Min: 0°
+                    </h6>
+                    <h6>
+                        Max: 3°
+                    </h6>
+                    <h6>
+                        Wind: 5km/h
+                    </h6>
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js">
+    </script>
+  </body>
+</html>
