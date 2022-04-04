@@ -22,6 +22,7 @@ dateTime.innerHTML = currentDate();
 //Week 5 homework: Show temperature by city
 
 function currentWeatherData(response) {
+  console.log(response.data);
   let currentTemp = Math.round(response.data.main.temp);
   let tempCity = document.querySelector("#temperature");
   tempCity.innerHTML = `${currentTemp}`;
@@ -33,6 +34,13 @@ function currentWeatherData(response) {
   );
   document.querySelector("#weatherDescription").innerHTML =
     response.data.weather[0].main;
+
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(city) {
