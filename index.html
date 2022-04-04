@@ -23,8 +23,8 @@
       <div class="card">
         <div class="card-body">
           <form class="form-search">
-            <input type="text" placeholder="Enter city name" id="search-city" />
-            <input id="search" type="submit" value="Search" />
+            <input type="text" placeholder="Enter city name" id="search-city" autocomplete="off" />
+            <input id="search" type="submit" value="Search"  />
             <input id="button-current" type="button" value="📍"
           </form>
           <div class="row">
@@ -48,7 +48,7 @@
                   
                 </span>
                 <span class="units"> 
-                  °C 
+                  <a href="#" id="celsius-link" class="active">°C</a>  | <a href="#" id="fahrenheit-link">°F</a>
                 </span>
               </h1>
               <h4 class="humidity">Humidity <span id="humidity"> </span>%</h4>

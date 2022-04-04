@@ -26,6 +26,7 @@ function currentWeatherData(response) {
   let currentTemp = Math.round(response.data.main.temp);
   let tempCity = document.querySelector("#temperature");
   tempCity.innerHTML = `${currentTemp}`;
+  celsiusTemperature = response.data.main.temp;
 
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -58,8 +59,6 @@ function showCurrentTemperature(event) {
 let formTemperature = document.querySelector(".form-search");
 formTemperature.addEventListener("submit", showCurrentTemperature);
 
-searchCity("Tallinn");
-
 //Week 5 Bonus: current location button
 
 let currentLocationButton = document.querySelector("#button-current");
@@ -78,3 +77,30 @@ function searchLocation(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(currentWeatherData);
 }
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrentheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrentheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let celsiusTemperature = null;
+
+searchCity("Tallinn");
