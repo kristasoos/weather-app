@@ -21,30 +21,41 @@ dateTime.innerHTML = currentDate();
 
 //Creating forecast
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-            <div class="col-3" id="forecast">
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+            <div class="col-2" id="forecast">
               <div class="card">
-                <img src="media/Snow.svg" class="card-img-top" alt="..." />
+                <img src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png" alt="..." />
                 <div class="card-body">
-                  <h5 class="card-title" id="date">${day}</h5>
+                  <h5 class="card-title" id="date">${formatDay(
+                    forecastDay.dt
+                  )}</h5>
                   <p class="card-text">
                     <h6 class="temperature-minimum">
-                        Min: 0°
+                        Min: ${Math.round(forecastDay.temp.min)}
                     </h6>
                     <h6 class="temperature-maximum">
-                        Max: 3°
+                        Max: ${Math.round(forecastDay.temp.max)}
                     </h6>
-                    <h6 class="current-wind-speed">
-                        Wind: 5km/h
-                    </h6>
+                    
                   </p>
                   <p class="card-text">
                     <small class="text-muted">Last updated 3 mins ago</small>
@@ -53,6 +64,7 @@ function displayForecast(response) {
               </div>
             </div>   
                 `;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
