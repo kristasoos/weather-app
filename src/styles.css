@@ -32,3 +32,7 @@ h4 {
 .units .active:hover {
   text-decoration: none;
 }
+
+.date {
+  font-weight: bold;
+}
