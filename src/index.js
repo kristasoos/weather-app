@@ -41,25 +41,21 @@ function displayForecast(response) {
         `
             <div class="col-2" id="forecast">
               <div class="card">
+                <h5 class="card-title" id="date">${formatDay(
+                  forecastDay.dt
+                )}</h5>
+                <p class="card-text">
+                  <h6 class="weather-temperature">
+                        <strong>${Math.round(forecastDay.temp.max)}°</strong> /
+                        <span>${Math.round(forecastDay.temp.min)}°</span>
+                    </h6>
+                  </p>
                 <img src="http://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
                 }@2x.png" alt="..." />
                 <div class="card-body">
-                  <h5 class="card-title" id="date">${formatDay(
-                    forecastDay.dt
-                  )}</h5>
-                  <p class="card-text">
-                    <h6 class="temperature-minimum">
-                        Min: ${Math.round(forecastDay.temp.min)}
-                    </h6>
-                    <h6 class="temperature-maximum">
-                        Max: ${Math.round(forecastDay.temp.max)}
-                    </h6>
-                    
-                  </p>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
+                
+                  
                 </div>
               </div>
             </div>   

@@ -1,13 +1,15 @@
 body {
   font-family: "Source Serif Pro", serif;
   padding: 50px;
-  max-width: 1000px;
+  max-width: 900px;
   align-items: center;
   margin: 0 auto;
 }
 
 .card {
   background-color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 0px;
 }
 h4 {
   font-size: 20px;
@@ -35,4 +37,18 @@ h4 {
 
 .date {
   font-weight: bold;
+}
+
+.card-title {
+  padding-bottom: none;
+  text-align: center;
+}
+
+.card-body {
+  padding: none;
+}
+
+.weather-temperature {
+  text-align: center;
+  font-size: 16px;
 }
