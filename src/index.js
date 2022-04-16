@@ -19,6 +19,45 @@ function currentDate(date) {
 let dateTime = document.querySelector("#date-time");
 dateTime.innerHTML = currentDate();
 
+//Creating forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-3" id="forecast">
+              <div class="card">
+                <img src="media/Snow.svg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title" id="date">${day}</h5>
+                  <p class="card-text">
+                    <h6 class="temperature-minimum">
+                        Min: 0°
+                    </h6>
+                    <h6 class="temperature-maximum">
+                        Max: 3°
+                    </h6>
+                    <h6 class="current-wind-speed">
+                        Wind: 5km/h
+                    </h6>
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+            </div>   
+                `;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
+
 //Week 5 homework: Show temperature by city
 
 function currentWeatherData(response) {
